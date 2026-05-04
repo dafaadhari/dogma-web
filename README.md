@@ -1,64 +1,55 @@
-DOGMA - Diskusi Obrolan Gerakan Bersama
-📌 Tentang DOGMA
-DOGMA adalah sebuah platform profil komunitas yang didirikan pada 25 April 2026 di Rangkasbitung. Proyek ini hadir sebagai jawaban atas keresahan mengenai minimnya ruang diskusi ilmiah dan edukasi di tengah masyarakat. Melalui wadah ini, mahasiswa, akademisi, dan pekerja berkumpul untuk membedah isu, memberikan kritik membangun, dan melahirkan solusi nyata.
+<p align="center">
+  <img src="public/favicon.png" width="150" alt="Logo DOGMA">
+  <h2 align="center">Diskusi Obrolan Gerakan Bersama</h2>
+</p>
 
-🚀 Fitur Utama
-Landing Page Modern: Desain minimalis dan profesional menggunakan Tailwind CSS.
+<p align="center">
+<a href="http://dogma.gt.tc/"><img src="https://img.shields.io/badge/Demo-Live_Website-brightgreen.svg?style=flat&logo=google-chrome" alt="Live Demo"></a>
+<a href="https://github.com/mochamaddapa/dogma-web"><img src="https://img.shields.io/badge/Framework-Laravel_11-FF2D20.svg?style=flat&logo=laravel" alt="Laravel Framework"></a>
+<a href="https://github.com/mochamaddapa/dogma-web"><img src="https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC.svg?style=flat&logo=tailwind-css" alt="Tailwind CSS"></a>
+</p>
 
-Daftar Diskusi Dinamis: Menampilkan jadwal diskusi mendatang yang diambil langsung dari database.
+## Tentang DOGMA
 
-Desain Responsif: Optimal diakses melalui berbagai perangkat (Mobile, Tablet, Desktop).
+DOGMA (Diskusi Obrolan Gerakan Bersama) adalah sebuah platform profil komunitas berbasis web dengan desain yang ekspresif dan minimalis. Kami percaya bahwa sebuah diskusi harus menjadi pengalaman yang menyenangkan, objektif, dan edukatif. DOGMA mempermudah pengelolaan informasi komunitas dengan menyederhanakan berbagai kebutuhan, seperti:
 
-Integrasi WhatsApp: Form pendaftaran anggota yang terhubung langsung dengan admin.
+- [Tampilan landing page yang cepat dan modern](http://dogma.gt.tc/) untuk profil pergerakan.
+- Manajemen topik dan jadwal diskusi yang dinamis.
+- Desain *mobile-first* yang responsif menggunakan Tailwind CSS.
+- Integrasi langsung dengan WhatsApp untuk pendaftaran anggota.
+- Optimasi aset dan *routing* agar ringan berjalan di *shared hosting*.
 
-SEO & Open Graph: Sudah dilengkapi meta tags untuk kartu preview media sosial yang menarik.
+DOGMA dirancang agar mudah diakses, tangguh, dan menyediakan alat digital yang dibutuhkan untuk mengembangkan ruang diskusi dan pergerakan di Rangkasbitung.
 
-🛠️ Teknologi yang Digunakan
-Framework: Laravel 11.
+## Akses Demo
 
-Frontend: Tailwind CSS & Vite.
+Anda dapat melihat langsung web aplikasi DOGMA yang sudah mengudara melalui tautan berikut:
 
-Database: MySQL.
+👉 **[Live Demo Website DOGMA](http://dogma.gt.tc/)**
 
-Server: PHP 8.2+.
+## Memulai Instalasi
 
-💻 Instalasi Lokal
-Jika ingin menjalankan proyek ini di lingkungan lokal, ikuti langkah berikut:
+Jika Anda ingin menjalankan atau mengembangkan platform web DOGMA di komputer lokal (*localhost*), *clone repository* ini dan instal seluruh dependensinya melalui langkah berikut:
+```bash
 
-Clone Repository:
-
-Bash
-git clone https://github.com/username-boss/dogma-web.git
-cd dogma-web
-Instalasi Dependency:
-
-Bash
 composer install
-npm install
-Konfigurasi Environment:
-Salin file .env.example menjadi .env dan sesuaikan pengaturan database Anda.
-
-Bash
+npm install && npm run build
 cp .env.example .env
 php artisan key:generate
-Migrasi & Seed:
-
-Bash
-php artisan migrate --seed
-Jalankan Server:
-
-Bash
-npm run dev
-# Buka terminal baru
+php artisan migrate
 php artisan serve
-🌐 Deployment
-Proyek ini dikonfigurasi untuk berjalan di shared hosting (seperti InfinityFree) dengan struktur:
+Mitra Komunitas
+Kami ingin menyampaikan rasa terima kasih kepada para mitra yang telah mendukung pergerakan DOGMA serta menyediakan ruang bagi ide-ide kami untuk terus tumbuh.
 
-Pemanfaatan .htaccess untuk membelokkan traffic ke folder public.
+Mitra Utama
 
-Penggunaan npm run build untuk memproses aset statis.
+Mahasiswa, Akademisi & Pekerja Banten
 
-🤝 Kontribusi
-Kami mengundang siapa saja untuk berkontribusi dalam pengembangan platform ini demi memperluas ruang diskusi edukatif di masyarakat.
+Kontribusi
+Terima kasih telah mempertimbangkan untuk berkontribusi pada platform web DOGMA! Baik Anda seorang developer, akademisi, maupun pekerja yang peduli terhadap edukasi, kontribusi Anda terhadap kode maupun komunitas kami sangatlah berharga.
 
-DOGMA - Rangkasbitung, Banten.
+Kode Etik
+Untuk memastikan komunitas DOGMA menjadi tempat yang nyaman bagi semua orang, harap tinjau dan patuhi nilai-nilai utama kami: selalu bersikap objektif, kritis namun tetap saling menghargai, dan selalu berfokus pada pencarian solusi nyata.
+
+Pelaporan Celah Keamanan
+Jika Anda menemukan celah keamanan di dalam platform web DOGMA, silakan hubungi tim administrasi kami secara langsung melalui kontak yang tersedia di website. Setiap laporan akan segera kami tangani.
