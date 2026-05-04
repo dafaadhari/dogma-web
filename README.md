@@ -9,6 +9,7 @@
 <a href="https://github.com/mochamaddapa/dogma-web"><img src="https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC.svg?style=flat&logo=tailwind-css" alt="Tailwind CSS"></a>
 </p>
 
+
 ## Tentang DOGMA
 
 DOGMA (Diskusi Obrolan Gerakan Bersama) adalah sebuah platform profil komunitas berbasis web dengan desain yang ekspresif dan minimalis. Kami percaya bahwa sebuah diskusi harus menjadi pengalaman yang menyenangkan, objektif, dan edukatif. DOGMA mempermudah pengelolaan informasi komunitas dengan menyederhanakan berbagai kebutuhan, seperti:
@@ -19,13 +20,14 @@ DOGMA (Diskusi Obrolan Gerakan Bersama) adalah sebuah platform profil komunitas 
 - Integrasi langsung dengan WhatsApp untuk pendaftaran anggota.
 - Optimasi aset dan *routing* agar ringan berjalan di *shared hosting*.
 
-DOGMA dirancang agar mudah diakses, tangguh, dan menyediakan alat digital yang dibutuhkan untuk mengembangkan ruang diskusi dan pergerakan di Rangkasbitung.
+DOGMA dirancang agar mudah diakses, tangguh, dan menyediakan alat digital yang dibutuhkan untuk mengembangkan ruang diskusi dan pergerakan.
 
 ## Akses Demo
 
 Anda dapat melihat langsung web aplikasi DOGMA yang sudah mengudara melalui tautan berikut:
 
 👉 **[Live Demo Website DOGMA](http://dogma.gt.tc/)**
+
 
 ## Memulai Instalasi
 
@@ -38,18 +40,15 @@ cp .env.example .env
 php artisan key:generate
 php artisan migrate
 php artisan serve
+
 Mitra Komunitas
 Kami ingin menyampaikan rasa terima kasih kepada para mitra yang telah mendukung pergerakan DOGMA serta menyediakan ruang bagi ide-ide kami untuk terus tumbuh.
 
 Mitra Utama
-
-Mahasiswa, Akademisi & Pekerja Banten
+Mahasiswa, Akademisi & Pekerja
 
 Kontribusi
 Terima kasih telah mempertimbangkan untuk berkontribusi pada platform web DOGMA! Baik Anda seorang developer, akademisi, maupun pekerja yang peduli terhadap edukasi, kontribusi Anda terhadap kode maupun komunitas kami sangatlah berharga.
-
-Kode Etik
-Untuk memastikan komunitas DOGMA menjadi tempat yang nyaman bagi semua orang, harap tinjau dan patuhi nilai-nilai utama kami: selalu bersikap objektif, kritis namun tetap saling menghargai, dan selalu berfokus pada pencarian solusi nyata.
 
 Pelaporan Celah Keamanan
 Jika Anda menemukan celah keamanan di dalam platform web DOGMA, silakan hubungi tim administrasi kami secara langsung melalui kontak yang tersedia di website. Setiap laporan akan segera kami tangani.
