@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/favicon.png" width="150" alt="Logo DOGMA">
+  <img src="public/logo-dogma.png" width="150" alt="Logo DOGMA">
   <h2 align="center">Diskusi Obrolan Gerakan Bersama</h2>
 </p>
 
