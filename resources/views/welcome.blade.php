@@ -14,7 +14,7 @@
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png?v=2') }}">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png?v=4') }}">
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
@@ -25,8 +25,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="font-extrabold text-3xl tracking-tighter">D<span class="text-gray-400">?</span>GMA</span>
-                </div>
+    				<img src="{{ asset('logo-dogma.png') }}" alt="Logo DOGMA" style="height: 60px; width: auto;">
+				</div>
                 
                 <nav class="hidden md:flex space-x-8">
                     <a href="#beranda" class="text-gray-600 hover:text-black font-semibold transition">Beranda</a>
@@ -65,7 +65,7 @@
             Dari Obrolan,<br>Menjadi <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">Gerakan.</span>
         </h1>
         <p class="mt-4 max-w-2xl text-lg sm:text-xl text-gray-600 mx-auto mb-10">
-            Menjawab tantangan minimnya ruang diskusi ilmiah. DOGMA hadir sebagai wadah edukasi, evaluasi, dan kolaborasi bagi mahasiswa, akademisi, serta pekerja.
+            Menjawab tantangan minimnya ruang diskusi ilmiah. DOGMA hadir sebagai wadah edukasi, evaluasi, dan kolaborasi bagi mahasiswa, akademisi, pekerja, serta seluruh elemen masyarakat.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0">
             <a href="#gabung" class="bg-black text-white px-8 py-4 rounded-none font-bold text-lg hover:bg-gray-800 transition shadow-lg w-full sm:w-auto">
@@ -83,7 +83,7 @@
                 <div>
                     <h2 class="text-3xl font-extrabold text-black mb-6">Lebih dari Sekadar Ruang Diskusi.</h2>
                     <p class="text-gray-600 mb-4 text-lg leading-relaxed">
-                        DOGMA didirikan pada 25 April 2026 di Rangkasbitung. Kami hadir berawal dari sebuah keresahan bersama mengenai minimnya ruang diskusi ilmiah dan edukasi di tengah masyarakat.
+                        DOGMA adalah akronim dari Diskusi Obrolan dan Gerakan Bersama yang didirikan pada 25 April 2026 di Rangkasbitung. Kami hadir berawal dari sebuah keresahan bersama mengenai minimnya ruang diskusi ilmiah dan edukasi di tengah masyarakat.
                     </p>
                     <p class="text-gray-600 text-lg leading-relaxed">
                         Kami bukan sekadar tempat berkumpul, melainkan sebuah gerakan. Menyatukan mahasiswa, akademisi, dan pekerja untuk membedah isu, memberikan kritik membangun, dan melahirkan solusi nyata.
@@ -156,13 +156,9 @@
     </section>
 
     <footer class="bg-black text-gray-400 py-8 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="font-extrabold text-2xl text-white tracking-tighter">D<span class="text-gray-500">?</span>GMA</span>
-                <p class="text-sm mt-1">Diskusi Obrolan Gerakan Bersama.</p>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center">
             
-            <div class="text-sm text-center md:text-right">
+            <div class="text-sm text-center">
                 <p>&copy; {{ date('Y') }} Komunitas DOGMA. All Rights Reserved.</p>
                 <p class="mt-1">Rangkasbitung, Banten.</p>
             </div>
@@ -170,7 +166,6 @@
     </footer>
 
     <script>
-        // Fungsi untuk membuka tutup menu HP
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -185,10 +180,8 @@
                 return; 
             }
             
-            // Format Pesan
             let message = `Halo Admin DOGMA, saya ${nama} dari ${instansi}. Saya tertarik untuk bergabung dan mengikuti ruang diskusi selanjutnya.`;
             
-            // Nomor WhatsApp Asli DOGMA
             let waNumber = '6281288255963'; 
             let waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
             
