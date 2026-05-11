@@ -1,58 +1,54 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="public/favicon.png" width="150" alt="Logo DOGMA">
+  <h2 align="center">Diskusi Obrolan Gerakan Bersama</h2>
 </p>
 
-## About Laravel
+<p align="center">
+<a href="http://dogma.gt.tc/"><img src="https://img.shields.io/badge/Demo-Live_Website-brightgreen.svg?style=flat&logo=google-chrome" alt="Live Demo"></a>
+<a href="https://github.com/mochamaddapa/dogma-web"><img src="https://img.shields.io/badge/Framework-Laravel_11-FF2D20.svg?style=flat&logo=laravel" alt="Laravel Framework"></a>
+<a href="https://github.com/mochamaddapa/dogma-web"><img src="https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC.svg?style=flat&logo=tailwind-css" alt="Tailwind CSS"></a>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tentang DOGMA
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+DOGMA (Diskusi Obrolan Gerakan Bersama) adalah sebuah platform profil komunitas berbasis web dengan desain yang ekspresif dan minimalis. Kami percaya bahwa sebuah diskusi harus menjadi pengalaman yang menyenangkan, objektif, dan edukatif. DOGMA mempermudah pengelolaan informasi komunitas dengan menyederhanakan berbagai kebutuhan, seperti:
 
-## Learning Laravel
+- [Tampilan landing page yang cepat dan modern](http://dogma.gt.tc/) untuk profil pergerakan.
+- Manajemen topik dan jadwal diskusi yang dinamis.
+- Desain *mobile-first* yang responsif menggunakan Tailwind CSS.
+- Integrasi langsung dengan WhatsApp untuk pendaftaran anggota.
+- Optimasi aset dan *routing* agar ringan berjalan di *shared hosting*.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+DOGMA dirancang agar mudah diakses, tangguh, dan menyediakan alat digital yang dibutuhkan untuk mengembangkan ruang diskusi dan pergerakan.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Akses Demo
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+Anda dapat melihat langsung web aplikasi DOGMA yang sudah mengudara melalui tautan berikut:
 
-## Agentic Development
+👉 **[Live Demo Website DOGMA](http://dogma.gt.tc/)**
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
 
+## Memulai Instalasi
+
+Jika Anda ingin menjalankan atau mengembangkan platform web DOGMA di komputer lokal (*localhost*), *clone repository* ini dan instal seluruh dependensinya melalui langkah berikut:
 ```bash
-composer require laravel/boost --dev
 
-php artisan boost:install
-```
+composer install
+npm install && npm run build
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Mitra Komunitas
+Kami ingin menyampaikan rasa terima kasih kepada para mitra yang telah mendukung pergerakan DOGMA serta menyediakan ruang bagi ide-ide kami untuk terus tumbuh.
 
-## Contributing
+Mitra Utama
+Mahasiswa, Akademisi & Pekerja
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Kontribusi
+Terima kasih telah mempertimbangkan untuk berkontribusi pada platform web DOGMA! Baik Anda seorang developer, akademisi, maupun pekerja yang peduli terhadap edukasi, kontribusi Anda terhadap kode maupun komunitas kami sangatlah berharga.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Pelaporan Celah Keamanan
+Jika Anda menemukan celah keamanan di dalam platform web DOGMA, silakan hubungi tim administrasi kami secara langsung melalui kontak yang tersedia di website. Setiap laporan akan segera kami tangani.
