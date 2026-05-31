@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
+    <meta name="google-site-verification" content="m-GoeeW1zUe0rTHIpjeOFanJeRWWJvmiOh5ElRiPlhw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOGMA - Diskusi Obrolan Gerakan Bersama</title>
+    <title>DOGMA - Diskusi Obrolan dan Gerakan Bersama</title>
     <meta name="title" content="DOGMA - Diskusi Obrolan Gerakan Bersama">
     <meta name="description" content="Hadirnya Komunitas DOGMA untuk menjawab tantangan mengenai minimnya ruang diskusi ilmiah, edukasi di kalangan masyarakat.">
 
@@ -156,16 +157,18 @@
     </section>
 
     <footer class="bg-black text-gray-400 py-8 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 items-center">
+            
             
             <div class="text-sm text-center">
                 <p>&copy; {{ date('Y') }} Komunitas DOGMA. All Rights Reserved.</p>
-                <p class="mt-1">Rangkasbitung, Banten.</p>
+                <p class="mt-1">Rangkasbitung, Lebak, Banten.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Fungsi untuk membuka tutup menu HP
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -180,8 +183,10 @@
                 return; 
             }
             
+            // Format Pesan
             let message = `Halo Admin DOGMA, saya ${nama} dari ${instansi}. Saya tertarik untuk bergabung dan mengikuti ruang diskusi selanjutnya.`;
             
+            // Nomor WhatsApp Asli DOGMA
             let waNumber = '6281288255963'; 
             let waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
             
