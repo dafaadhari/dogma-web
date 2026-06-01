@@ -9,7 +9,6 @@ class Topic extends Model
 {
     use HasFactory;
 
-    // Mengizinkan kolom-kolom ini untuk diisi data
     protected $fillable = [
         'title', 
         'slug', 
