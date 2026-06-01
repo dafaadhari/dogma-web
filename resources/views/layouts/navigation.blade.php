@@ -80,33 +80,40 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu (Versi Mobile / HP) -->
+    <!-- Responsive Navigation Menu (Versi Mobile) -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-
-            <!-- Menu yang tadi hilang di versi HP -->
-            @role('Super Admin')
-            <x-responsive-nav-link :href="route('topics.index')" :active="request()->routeIs('topics.*')">
-                {{ __('Jadwal Diskusi') }}
-            </x-responsive-nav-link>
-            @endrole
             
-            @hasanyrole('Super Admin|Author')
-            <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
-                {{ __('Ruang Redaksi') }}
+            <x-responsive-nav-link :href="url('/')">
+                Beranda Portal
             </x-responsive-nav-link>
-            @endhasanyrole
 
-            <!-- Tombol Kembali ke Portal Publik (Versi HP) -->
-            <x-responsive-nav-link :href="url('/')" class="text-blue-600 font-bold">
-                {!! __('&larr; Lihat Portal Publik') !!}
-            </x-responsive-nav-link>
+            @guest
+                <x-responsive-nav-link :href="route('login')" class="text-blue-600 font-bold">
+                    Login Redaksi
+                </x-responsive-nav-link>
+            @endguest
+
+            @auth
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+
+                @role('Super Admin')
+                <x-responsive-nav-link :href="route('topics.index')" :active="request()->routeIs('topics.*')">
+                    {{ __('Jadwal Diskusi') }}
+                </x-responsive-nav-link>
+                @endrole
+                
+                @hasanyrole('Super Admin|Author')
+                <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+                    {{ __('Ruang Redaksi') }}
+                </x-responsive-nav-link>
+                @endhasanyrole
+            @endauth
         </div>
 
-        <!-- Responsive Settings Options -->
+        @auth
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-bold text-base text-gray-800 uppercase tracking-widest">{{ Auth::user()->name }}</div>
@@ -118,7 +125,6 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <x-responsive-nav-link :href="route('logout')"
@@ -129,5 +135,6 @@
                 </form>
             </div>
         </div>
+        @endauth
     </div>
 </nav>

@@ -64,7 +64,18 @@
                 <a href="#beranda" onclick="toggleMobileMenu()" class="block text-gray-600 font-semibold py-2">Beranda</a>
                 <a href="#tentang" onclick="toggleMobileMenu()" class="block text-gray-600 font-semibold py-2">Tentang Kami</a>
                 <a href="#topik" onclick="toggleMobileMenu()" class="block text-gray-600 font-semibold py-2">Topik Diskusi</a>
+                
+                <a href="#berita" onclick="toggleMobileMenu()" class="block text-gray-600 font-semibold py-2">Portal Berita</a>
+                
                 <a href="#gabung" onclick="toggleMobileMenu()" class="block bg-black text-white font-bold py-3 mt-4 mx-4">Join Kami</a>
+
+                @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="block text-gray-900 font-bold py-2 mt-2">Dashboard Redaksi</a>
+                    @else
+                        <a href="{{ route('login') }}" class="block text-gray-900 font-bold py-2 mt-2">Login</a>
+                    @endauth
+                @endif
             </div>
         </div>
     </header>

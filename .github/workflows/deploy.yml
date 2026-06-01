@@ -3,7 +3,7 @@ name: Deploy ke InfinityFree
 on:
   push:
     branches:
-      - main # Robot akan berjalan setiap ada push ke branch main
+      - main 
 
 jobs:
   web-deploy:
@@ -13,17 +13,21 @@ jobs:
     - name: Mengambil kode terbaru dari GitHub
       uses: actions/checkout@v4
 
-    # =========================================================
-    # FASE BARU: MERAKIT MESIN SEBELUM DIKIRIM
-    # =========================================================
-    - name: Menyiapkan PHP di Server Mesin GitHub
+    - name: Menyiapkan PHP di Server GitHub
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3' # Standar untuk Laravel 11
+        php-version: '8.3' 
 
-    - name: Merakit Mesin Laravel (Install folder vendor)
+    - name: Mengingat Folder Vendor (Cache)
+      uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+
+    - name: Merakit Mesin Laravel (Hanya update yang baru)
       run: composer install --no-dev --optimize-autoloader
-    # =========================================================
 
     - name: Mengirim file ke InfinityFree
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -32,7 +36,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /htdocs/ # Folder utama InfinityFree
+        server-dir: /htdocs/ 
         exclude: |
           **/.git*
           **/.git*/**
