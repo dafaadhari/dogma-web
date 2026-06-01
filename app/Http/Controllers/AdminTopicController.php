@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Topic;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+class AdminTopicController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $topics = Topic::orderBy('created_at', 'desc')->get();
+        return view('admin.topics.index', compact('topics'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.topics.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'date' => 'required|date',
+        ]);
+
+        Topic::create([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'description' => $request->description,
+            'discussion_date' => $request->date,
+        ]);
+        return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi baru berhasil ditambahkan!');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $topic = Topic::findOrFail($id);
+        return view('admin.topics.edit', compact('topic'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'date' => 'required|date',
+        ]);
+
+        $topic = Topic::findOrFail($id);
+        $topic->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'description' => $request->description,
+            'discussion_date' => $request->date,
+        ]);
+        return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi berhasil diperbarui!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $topic = Topic::findOrFail($id);
+        $topic->delete();
+        return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi berhasil dihapus!');
+    }
+}
