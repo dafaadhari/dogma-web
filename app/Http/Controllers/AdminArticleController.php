@@ -12,7 +12,7 @@ class AdminArticleController extends Controller
     {
         $user = $request->user();
 
-        // KENDALI AKSES: Super Admin melihat semua, Author hanya melihat karyanya sendiri
+        //Super Admin melihat semua, Author hanya melihat karyanya sendiri
         if ($user->hasRole('Super Admin')) {
             $articles = Article::latest()->get();
         } else {
@@ -37,7 +37,10 @@ class AdminArticleController extends Controller
 
         $imagePath = null;
         if ($request->hasFile('cover_image')) {
-            $imagePath = $request->file('cover_image')->store('article-covers', 'public');
+            $file = $request->file('cover_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('article-covers'), $filename);
+            $imagePath = 'article-covers/' . $filename;
         }
 
         $user = $request->user();
@@ -57,7 +60,6 @@ class AdminArticleController extends Controller
 
     public function edit(Article $article, Request $request)
     {
-        // ANTI-HACK: Jika bukan admin DAN mencoba edit artikel orang lain lewat URL, BLOKIR!
         if (!$request->user()->hasRole('Super Admin') && $article->user_id !== $request->user()->id) {
             abort(403, 'Boss bilang: Anda tidak punya akses ke artikel ini!');
         }
@@ -79,7 +81,10 @@ class AdminArticleController extends Controller
 
         $imagePath = $article->cover_image;
         if ($request->hasFile('cover_image')) {
-            $imagePath = $request->file('cover_image')->store('article-covers', 'public');
+            $file = $request->file('cover_image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('article-covers'), $filename);
+            $imagePath = 'article-covers/' . $filename;
         }
 
         $article->update([
