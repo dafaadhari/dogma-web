@@ -20,6 +20,12 @@ Route::get('/news/{slug}', function ($slug) {
     return view('article-detail', compact('article'));
 })->name('news.detail');
 
+// Rute (Symlink)
+Route::get('/buat-jembatan', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+    return 'Jembatan gambar berhasil dibuat!';
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
