@@ -41,7 +41,7 @@
         <!-- Gambar Sampul -->
         @if($article->cover_image)
             <div class="w-full mb-12 border border-gray-200 bg-gray-50 aspect-video overflow-hidden">
-                <img src="{{ asset('storage/' . $article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                <img src="{{ asset($article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
             </div>
         @endif
 
