@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruang Dogma</title>
+    
     <meta name="title" content="DOGMA - Diskusi Obrolan Gerakan Bersama">
     <meta name="description" content="Hadirnya Komunitas DOGMA untuk menjawab tantangan mengenai minimnya ruang diskusi ilmiah, edukasi di kalangan masyarakat.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dogma.id/"> 
+    <meta property="og:url" content="{{ url('/') }}"> 
     <meta property="og:title" content="DOGMA - Diskusi Obrolan Gerakan Bersama">
     <meta property="og:description" content="Hadirnya Komunitas DOGMA untuk menjawab tantangan mengenai minimnya ruang diskusi ilmiah, edukasi di kalangan masyarakat.">
+    <meta property="og:image" content="{{ asset('logo-dogma.png') }}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url('/') }}">
+    <meta property="twitter:title" content="DOGMA - Diskusi Obrolan Gerakan Bersama">
+    <meta property="twitter:description" content="Hadirnya Komunitas DOGMA untuk menjawab tantangan mengenai minimnya ruang diskusi ilmiah, edukasi di kalangan masyarakat.">
+    <meta property="twitter:image" content="{{ asset('logo-dogma.png') }}">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
