@@ -28,7 +28,7 @@
                             @foreach($topics as $topic)
                             <tr class="hover:bg-gray-50 transition-colors">
                                 <td class="px-6 py-4 font-medium text-gray-900">{{ $topic->title }}</td>
-                                <td class="px-6 py-4 text-gray-600 whitespace-nowrap">{{ \Carbon\Carbon::parse($topic->discussion_date)->format('d M Y') }}</td>
+                                <td class="px-6 py-4 text-gray-600 whitespace-nowrap">{{ \Carbon\Carbon::parse($topic->discussion_date)->format('d M Y, H:i') }} WIB</td>
                                 <td class="px-6 py-4 text-gray-500 text-sm">
                                     {{ Str::limit($topic->description, 60) }}
                                 </td>

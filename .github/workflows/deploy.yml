@@ -13,6 +13,18 @@ jobs:
     - name: Mengambil kode terbaru dari GitHub
       uses: actions/checkout@v4
 
+    # =========================================================
+    # FASE BARU: MERAKIT MESIN SEBELUM DIKIRIM
+    # =========================================================
+    - name: Menyiapkan PHP di Server Mesin GitHub
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3' # Standar untuk Laravel 11
+
+    - name: Merakit Mesin Laravel (Install folder vendor)
+      run: composer install --no-dev --optimize-autoloader
+    # =========================================================
+
     - name: Mengirim file ke InfinityFree
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -27,3 +39,4 @@ jobs:
           **/node_modules/**
           .env.example
           README.md
+          .env
