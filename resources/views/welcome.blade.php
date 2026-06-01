@@ -180,7 +180,7 @@
                         
                         <div class="w-full h-52 bg-gray-100 overflow-hidden relative">
                             @if($article->cover_image)
-                                <img src="{{ asset('storage/' . $article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                                <img src="{{ asset('article/' . $article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
                             @else
                                 <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-100 text-sm font-bold tracking-widest uppercase border-b border-gray-200">
                                     DOGMA NEWS
