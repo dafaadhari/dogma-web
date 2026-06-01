@@ -11,8 +11,11 @@ class AdminTopicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        if (!$request->user()->hasRole('Super Admin')) {
+        abort(403, 'Akses Ditolak! Hanya Super Admin yang boleh mengatur jadwal.');
+    }
         $topics = Topic::orderBy('created_at', 'desc')->get();
         return view('admin.topics.index', compact('topics'));
     }

@@ -4,7 +4,7 @@
     <meta name="google-site-verification" content="m-GoeeW1zUe0rTHIpjeOFanJeRWWJvmiOh5ElRiPlhw" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOGMA - Diskusi Obrolan dan Gerakan Bersama</title>
+    <title>Ruang Dogma</title>
     <meta name="title" content="DOGMA - Diskusi Obrolan Gerakan Bersama">
     <meta name="description" content="Hadirnya Komunitas DOGMA untuk menjawab tantangan mengenai minimnya ruang diskusi ilmiah, edukasi di kalangan masyarakat.">
 
@@ -33,12 +33,20 @@
                     <a href="#beranda" class="text-gray-600 hover:text-black font-semibold transition">Beranda</a>
                     <a href="#tentang" class="text-gray-600 hover:text-black font-semibold transition">Tentang Kami</a>
                     <a href="#topik" class="text-gray-600 hover:text-black font-semibold transition">Topik Diskusi</a>
+                    <a href="#berita" class="text-gray-600 hover:text-black font-semibold transition">Portal Berita</a>
                 </nav>
                 
-                <div class="hidden md:flex">
+                <div class="hidden md:flex items-center gap-6">
                     <a href="#gabung" class="bg-black text-white px-6 py-2 rounded-none font-bold hover:bg-gray-800 transition">
                         Join Kami
                     </a>
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/dashboard') }}" class="text-sm font-bold text-gray-600 hover:text-black transition">Dashboard Redaksi</a>
+                        @else
+                            <a href="{{ route('login') }}" class="text-sm font-bold text-gray-600 hover:text-black transition">Login</a>
+                        @endauth
+                    @endif
                 </div>
 
                 <div class="md:hidden flex items-center">
@@ -82,30 +90,30 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-extrabold text-black mb-6">Lebih dari Sekadar Ruang Diskusi.</h2>
+                    <h2 class="text-3xl font-extrabold text-black mb-6">Mengawal Nalar Kritis,<br>Menyuarakan Kebenaran.</h2>
                     <p class="text-gray-600 mb-4 text-lg leading-relaxed">
-                        DOGMA adalah akronim dari Diskusi Obrolan dan Gerakan Bersama yang didirikan pada 25 April 2026 di Rangkasbitung. Kami hadir berawal dari sebuah keresahan bersama mengenai minimnya ruang diskusi ilmiah dan edukasi di tengah masyarakat.
+                        DOGMA (Diskusi Obrolan dan Gerakan Bersama) lahir pada 25 April 2026 di Rangkasbitung, berawal dari keresahan akan minimnya ruang diskusi ilmiah. Kini, kami telah berevolusi menjadi portal jurnalisme independen sekaligus wadah pergerakan akar rumput.
                     </p>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Kami bukan sekadar tempat berkumpul, melainkan sebuah gerakan. Menyatukan mahasiswa, akademisi, dan pekerja untuk membedah isu, memberikan kritik membangun, dan melahirkan solusi nyata.
+                    <p class="text-gray-600 mb-4 text-lg leading-relaxed">
+                        Kami memadukan liputan yang tajam dengan dialektika komunitas yang mendalam. Menyatukan mahasiswa, akademisi, pekerja, dan semua elemen masyarakat untuk membedah isu-isu krusial, menyajikan berita objektif, dan mendorong aksi nyata di tengah masyarakat.
                     </p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="bg-white p-6 shadow-sm border border-gray-100 flex flex-col justify-center h-full">
-                        <h3 class="font-bold text-xl mb-2 text-black">Edukasi</h3>
-                        <p class="text-gray-500 text-sm">Menyebarkan informasi dan wawasan objektif kepada masyarakat luas.</p>
+                        <h3 class="font-bold text-xl mb-2 text-black">Edukasi & Jurnalisme</h3>
+                        <p class="text-gray-500 text-sm">Menyajikan laporan dan tajuk rencana independen untuk melawan misinformasi dan mencerdaskan publik.</p>
                     </div>
                     <div class="bg-white p-6 shadow-sm border border-gray-100 flex flex-col justify-center h-full">
-                        <h3 class="font-bold text-xl mb-2 text-black">Evaluasi</h3>
-                        <p class="text-gray-500 text-sm">Mengkaji isu permasalahan secara mendalam dan terstruktur.</p>
+                        <h3 class="font-bold text-xl mb-2 text-black">Ruang Dialektika</h3>
+                        <p class="text-gray-500 text-sm">Mengupas tuntas setiap kebijakan sosial melalui forum diskusi komunitas yang tajam dan berimbang.</p>
                     </div>
                     <div class="bg-white p-6 shadow-sm border border-gray-100 flex flex-col justify-center h-full">
                         <h3 class="font-bold text-xl mb-2 text-black">Kolaborasi</h3>
-                        <p class="text-gray-500 text-sm">Menggabungkan berbagai latar belakang untuk satu tujuan.</p>
+                        <p class="text-gray-500 text-sm">Membangun jaringan solidaritas lintas sektor untuk merumuskan satu visi perubahan yang konkret.</p>
                     </div>
                     <div class="bg-white p-6 shadow-sm border border-gray-100 flex flex-col justify-center h-full">
-                        <h3 class="font-bold text-xl mb-2 text-black">Solusi</h3>
-                        <p class="text-gray-500 text-sm">Menjadi pemantik pergerakan yang membawa perubahan positif.</p>
+                        <h3 class="font-bold text-xl mb-2 text-black">Pemantik Aksi</h3>
+                        <p class="text-gray-500 text-sm">Tidak berhenti pada teks dan perdebatan, melainkan menjadi pemicu gerakan sosial yang solutif.</p>
                     </div>
                 </div>
             </div>
@@ -138,6 +146,67 @@
         </div>
     </section>
 
+    <section id="berita" class="pt-20 pb-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header Section Berita (Meniru gaya Diskusi Mendatang) -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-black">Sorotan Redaksi</h2>
+                <p class="mt-4 text-gray-500">Laporan, opini, dan tajuk rencana terbaru dari DOGMA.</p>
+            </div>
+            
+            <!-- Grid Berita -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @forelse($articles as $article)
+                    <article class="bg-white border border-gray-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300">
+                        
+                        <div class="w-full h-52 bg-gray-100 overflow-hidden relative">
+                            @if($article->cover_image)
+                                <img src="{{ asset('storage/' . $article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                            @else
+                                <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-100 text-sm font-bold tracking-widest uppercase border-b border-gray-200">
+                                    DOGMA NEWS
+                                </div>
+                            @endif
+                            
+                            <div class="absolute top-4 left-4 bg-black text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest">
+                                Berita
+                            </div>
+                        </div>
+                        
+                        <!-- Info Konten -->
+                        <div class="p-6 flex flex-col flex-grow">
+                            <!-- Meta Penulis & Tanggal (Meniru label biru/abu di diskusi) -->
+                            <div class="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-3">
+                                {{ $article->user->name ?? 'Redaksi' }} &bull; {{ $article->created_at->format('d M Y') }}
+                            </div>
+                            
+                            <!-- Judul Berita -->
+                            <h3 class="text-xl font-bold text-black leading-snug mb-4">
+                                <a href="{{ route('news.detail', $article->slug) }}" class="hover:text-blue-600 transition-colors">
+                                    {{ $article->title }}
+                                </a>
+                            </h3>
+                            
+                            <!-- Garis Pemisah Tipis & Tombol Baca -->
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <a href="{{ route('news.detail', $article->slug) }}" class="inline-flex items-center text-xs font-bold text-black hover:text-blue-600 uppercase tracking-wider gap-1">
+                                    Baca Artikel 
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                @empty
+                    <div class="col-span-full text-center py-12 border border-gray-200 text-gray-500">
+                        Belum ada berita yang ditayangkan.
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </section>
+
     <section id="gabung" class="py-24 bg-black text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h2 class="text-4xl font-extrabold mb-4">Siap Berargumen dan Bergerak?</h2>
@@ -152,7 +221,7 @@
                     Kirim Pesan
                 </button>
             </div>
-            <p class="mt-8 text-sm text-gray-500">Data hanya digunakan untuk keperluan komunikasi</p>
+            <p class="mt-8 text-sm text-gray-500">Data hanya digunakan untuk keperluan komunikasi.</p>
         </div>
     </section>
 
@@ -162,13 +231,11 @@
             
             <div class="text-sm text-center">
                 <p>&copy; {{ date('Y') }} Komunitas DOGMA. All Rights Reserved.</p>
-                <p class="mt-1">Rangkasbitung, Lebak, Banten.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Fungsi untuk membuka tutup menu HP
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -179,14 +246,12 @@
             let instansi = document.getElementById('wa_instansi').value;
             
             if(!nama || !instansi) { 
-                alert('Harap isi Nama dan Instansi terlebih dahulu ya!'); 
+                alert('Harap isi Nama dan Instansi terlebih dulu!'); 
                 return; 
             }
             
-            // Format Pesan
             let message = `Halo Admin DOGMA, saya ${nama} dari ${instansi}. Saya tertarik untuk bergabung dan mengikuti ruang diskusi selanjutnya.`;
             
-            // Nomor WhatsApp Asli DOGMA
             let waNumber = '6281288255963'; 
             let waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
             

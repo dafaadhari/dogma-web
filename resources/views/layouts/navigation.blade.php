@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-200">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -10,10 +10,27 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                <!-- Navigation Links (Desktop) -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+
+                    @role('Super Admin')
+                    <x-nav-link :href="route('topics.index')" :active="request()->routeIs('topics.*')">
+                        {{ __('Jadwal Diskusi') }}
+                    </x-nav-link>
+                    @endrole
+                    
+                    @hasanyrole('Super Admin|Author')
+                    <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+                        {{ __('Ruang Redaksi') }}
+                    </x-nav-link>
+                    @endhasanyrole
+
+                    <!-- Tombol Kembali ke Portal Publik -->
+                    <x-nav-link :href="url('/')" class="text-blue-600 font-bold hover:text-blue-800 transition-colors">
+                        {!! __('&larr; Lihat Portal Publik') !!}
                     </x-nav-link>
                 </div>
             </div>
@@ -22,7 +39,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-2 py-1 border border-transparent text-sm leading-4 font-bold rounded-md text-gray-500 bg-white hover:text-black focus:outline-none transition ease-in-out duration-150 tracking-widest">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -41,7 +58,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -52,7 +68,7 @@
                 </x-dropdown>
             </div>
 
-            <!-- Hamburger -->
+            <!-- Hamburger (Mobile Menu Button) -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -64,18 +80,36 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
+    <!-- Responsive Navigation Menu (Versi Mobile / HP) -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <!-- Menu yang tadi hilang di versi HP -->
+            @role('Super Admin')
+            <x-responsive-nav-link :href="route('topics.index')" :active="request()->routeIs('topics.*')">
+                {{ __('Jadwal Diskusi') }}
+            </x-responsive-nav-link>
+            @endrole
+            
+            @hasanyrole('Super Admin|Author')
+            <x-responsive-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.*')">
+                {{ __('Ruang Redaksi') }}
+            </x-responsive-nav-link>
+            @endhasanyrole
+
+            <!-- Tombol Kembali ke Portal Publik (Versi HP) -->
+            <x-responsive-nav-link :href="url('/')" class="text-blue-600 font-bold">
+                {!! __('&larr; Lihat Portal Publik') !!}
             </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-bold text-base text-gray-800 uppercase tracking-widest">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
@@ -87,7 +121,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
