@@ -35,12 +35,14 @@ class AdminTopicController extends Controller
             'description' => 'required',
             'date' => 'required|date',
         ]);
+        $status = ($request->date < date('Y-m-d')) ? 'completed' : 'upcoming';
 
         Topic::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'discussion_date' => $request->date,
+            'status' => $status,
         ]);
         return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi baru berhasil ditambahkan!');
     }
@@ -73,12 +75,15 @@ class AdminTopicController extends Controller
             'date' => 'required|date',
         ]);
 
+        $status = ($request->date < date('Y-m-d')) ? 'completed' : 'upcoming';
+
         $topic = Topic::findOrFail($id);
         $topic->update([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'discussion_date' => $request->date,
+            'status' => $status,
         ]);
         return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi berhasil diperbarui!');
     }

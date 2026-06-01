@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Topic;
 
 Route::get('/', function () {
-    $topics = Topic::all(); 
+    $topics = Topic::orderBy('discussion_date', 'desc')->get();
     
     return view('welcome', compact('topics'));
 });
