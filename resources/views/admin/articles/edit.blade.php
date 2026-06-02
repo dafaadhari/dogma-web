@@ -10,11 +10,25 @@
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 
     <style>
-        /* Menyembunyikan tombol attach file bawaan Trix untuk keamanan awal */
-        trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
-        }
-    </style>
+    /* Sembunyikan tombol attach file bawaan Trix */
+    trix-toolbar [data-trix-button-group="file-tools"] {
+        display: none;
+    }
+    
+    /* Memastikan area ketik cukup luas dan background putih */
+    trix-editor {
+        min-height: 300px;
+        background-color: white;
+        text-align: justify;
+    }
+
+    trix-editor ul, .trix-content ul { list-style-type: disc !important; padding-left: 2rem !important; margin-bottom: 1rem !important; }
+    trix-editor ol, .trix-content ol { list-style-type: decimal !important; padding-left: 2rem !important; margin-bottom: 1rem !important; }
+    trix-editor blockquote, .trix-content blockquote { border-left: 4px solid #cbd5e1 !important; padding-left: 1rem !important; font-style: italic !important; margin-bottom: 1rem !important; }
+    trix-editor a, .trix-content a { color: #2563eb !important; text-decoration: underline !important; }
+    trix-editor strong, .trix-content strong { font-weight: 700 !important; }
+    trix-editor em, .trix-content em { font-style: italic !important; }
+</style>
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
