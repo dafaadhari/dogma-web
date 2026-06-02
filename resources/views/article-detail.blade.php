@@ -103,7 +103,7 @@
                 </div>
                 @if($article->image_source)
                     <figcaption class="text-center text-xs text-gray-500 mt-3 italic">
-                        Sumber foto: {{ $article->image_source }}
+                        Sumber Gambar: {{ $article->image_source }}
                     </figcaption>
                 @endif
             </figure>
