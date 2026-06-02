@@ -10,7 +10,7 @@ use App\Http\Controllers\AdminArticleController;
 Route::get('/', function () {
     $topics = Topic::orderBy('discussion_date', 'desc')->get();
     
-    $articles = Article::where('status', 'published')->latest()->get();
+    $articles = Article::where('status', 'published')->latest()->paginate(9);
     
     return view('welcome', compact('topics', 'articles'));
 });

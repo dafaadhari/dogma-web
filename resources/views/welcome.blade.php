@@ -223,6 +223,9 @@
                     </div>
                 @endforelse
             </div>
+            <div class="mt-12">
+            {{ $articles->links() }}
+        </div>
         </div>
     </section>
 
