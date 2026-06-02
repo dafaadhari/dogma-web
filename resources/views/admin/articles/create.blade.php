@@ -9,19 +9,21 @@
     <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
 
     <style>
-        /* Menyembunyikan tombol attach file bawaan Trix untuk keamanan awal */
         trix-toolbar [data-trix-button-group="file-tools"] {
             display: none;
         }
-        /* Memastikan area ketik cukup luas, background putih, dan TULISAN RATA KANAN-KIRI */
         trix-editor {
             min-height: 300px;
             background-color: white;
-            text-align: justify; /* Otomatis rata kanan-kiri saat mengetik */
         }
-        .trix-content {
-            text-align: justify;
-        }
+        
+        trix-editor p { text-align: justify !important; text-justify: inter-word !important; }
+        trix-editor ul, .trix-content ul { list-style-type: disc !important; padding-left: 2rem !important; margin-bottom: 1rem !important; }
+        trix-editor ol, .trix-content ol { list-style-type: decimal !important; padding-left: 2rem !important; margin-bottom: 1rem !important; }
+        trix-editor blockquote, .trix-content blockquote { border-left: 4px solid #cbd5e1 !important; padding-left: 1rem !important; font-style: italic !important; margin-bottom: 1rem !important; }
+        trix-editor a, .trix-content a { color: #2563eb !important; text-decoration: underline !important; }
+        trix-editor strong, .trix-content strong { font-weight: 700 !important; }
+        trix-editor em, .trix-content em { font-style: italic !important; }
     </style>
 
     <div class="py-12">
@@ -49,6 +51,13 @@
                         @error('cover_image')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
+                    </div>
+
+                    <!-- Input Sumber Gambar -->
+                    <div class="mb-6">
+                        <label for="image_source" class="block text-sm font-medium text-gray-700">Sumber Gambar (Opsional)</label>
+                        <input type="text" name="image_source" id="image_source" value="{{ old('image_source') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm" placeholder="Contoh: Foto oleh John Doe dari Unsplash">
+                        <p class="text-xs text-gray-500 mt-1">Tulis sumber atau hak cipta gambar jika ada.</p>
                     </div>
 
                     <div class="mb-6">

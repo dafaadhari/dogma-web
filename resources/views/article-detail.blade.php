@@ -97,9 +97,16 @@
         </div>
 
         @if($article->cover_image)
-            <div class="w-full mb-12 border border-gray-200 bg-gray-50 aspect-video overflow-hidden">
-                <img src="{{ asset($article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
-            </div>
+            <figure class="w-full mb-12">
+                <div class="border border-gray-200 bg-gray-50 aspect-video overflow-hidden">
+                    <img src="{{ asset($article->cover_image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover">
+                </div>
+                @if($article->image_source)
+                    <figcaption class="text-center text-xs text-gray-500 mt-3 italic">
+                        Sumber foto: {{ $article->image_source }}
+                    </figcaption>
+                @endif
+            </figure>
         @endif
 
         <article class="trix-content prose prose-lg max-w-none text-gray-800 leading-relaxed prose-a:text-blue-600 prose-headings:font-bold prose-headings:text-black">

@@ -51,6 +51,7 @@ class AdminArticleController extends Controller
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . Str::random(6),
             'cover_image' => $imagePath,
+            'image_source' => $request->image_source,
             'content' => $request->content,
             'status' => $status,
         ]);
@@ -91,6 +92,7 @@ class AdminArticleController extends Controller
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . Str::random(6),
             'cover_image' => $imagePath,
+            'image_source' => $request->image_source,
             'content' => $request->content,
         ]);
 
