@@ -113,6 +113,102 @@
             {!! $article->content !!}
         </article>
 
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-6 border-t border-b border-gray-200 my-10">
+            <div class="text-sm font-bold text-gray-700 uppercase tracking-widest">
+                Bagikan Artikel:
+            </div>
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="https://api.whatsapp.com/send?text={{ urlencode($article->title . ' - ' . url()->current()) }}" 
+                   target="_blank" 
+                   class="flex items-center gap-2 px-3 py-1.5 bg-[#25D366] text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-[#20ba59] transition">
+                    WhatsApp
+                </a>
+
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" 
+                   target="_blank" 
+                   class="flex items-center gap-2 px-3 py-1.5 bg-[#1877F2] text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-[#145dbd] transition">
+                    Facebook
+                </a>
+
+                <a href="https://twitter.com/intent/tweet?text={{ urlencode($article->title) }}&url={{ urlencode(url()->current()) }}" 
+                   target="_blank" 
+                   class="flex items-center gap-2 px-3 py-1.5 bg-[#000000] text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-[#222222] transition">
+                    X
+                </a>
+
+                <button onclick="copyToClipboard()" 
+                        class="flex items-center gap-2 px-3 py-1.5 bg-gray-800 text-white text-xs font-bold uppercase tracking-wider rounded hover:bg-gray-900 transition">
+                    Salin Link
+                </button>
+            </div>
+        </div>
+
+        <script>
+            function copyToClipboard() {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Tautan artikel berhasil disalin, Boss!");
+            }
+        </script>
+
+        <!-- ================= KOLOM KOMENTAR ================= -->
+        <section class="mt-12">
+            <h3 class="text-2xl font-black text-black mb-6">Komentar ({{ $article->comments->count() }})</h3>
+
+            <!-- Notifikasi Sukses Komentar -->
+            @if(session('success'))
+                <div class="p-4 mb-6 text-sm text-green-800 rounded-lg bg-green-50 border border-green-200">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            <!-- Form Isi Komentar -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-10">
+                <form action="{{ route('comments.store', $article->id) }}" method="POST">
+                    @csrf
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Nama Anda</label>
+                        <input type="text" name="name" id="name" required placeholder="Tulis nama panggilan..." 
+                               class="w-full rounded border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200">
+                    </div>
+                    <div class="mb-4">
+                        <label for="body" class="block text-sm font-bold text-gray-700 mb-2">Pendapat Anda</label>
+                        <textarea name="body" id="body" rows="4" required placeholder="Tuliskan pemikiran kritis Anda di sini..." 
+                                  class="w-full rounded border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200"></textarea>
+                    </div>
+                    <div class="text-right">
+                        <button type="submit" class="px-6 py-2 bg-black text-white font-bold uppercase text-sm tracking-widest hover:bg-gray-800 transition">
+                            Kirim Komentar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Daftar Komentar -->
+            <div class="space-y-6">
+                @forelse($article->comments as $comment)
+                    <div class="border-b border-gray-200 pb-6">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center font-bold text-gray-600">
+                                {{ strtoupper(substr($comment->name, 0, 1)) }}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-black">{{ $comment->name }}</h4>
+                                <p class="text-xs text-gray-500">{{ $comment->created_at->diffForHumans() }}</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed pl-13">
+                            {{ $comment->body }}
+                        </p>
+                    </div>
+                @empty
+                    <div class="text-center py-8 bg-gray-50 rounded border border-gray-100 text-gray-500 italic">
+                        Belum ada komentar untuk artikel ini. Jadilah yang pertama memberikan pendapat!
+                    </div>
+                @endforelse
+            </div>
+        </section>
+        <!-- ================================================== -->
+
     </main>
 
     <footer class="bg-black text-gray-400 py-8 mt-20 border-t border-gray-800">

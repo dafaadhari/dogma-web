@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Topic;
 use App\Models\Article;
 use App\Http\Controllers\AdminArticleController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     $topics = Topic::orderBy('discussion_date', 'desc')->get();
@@ -25,6 +26,8 @@ Route::get('/buat-jembatan', function () {
     \Illuminate\Support\Facades\Artisan::call('storage:link');
     return 'Jembatan gambar berhasil dibuat!';
 });
+
+Route::post('articles/{article}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
