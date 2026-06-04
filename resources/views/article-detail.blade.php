@@ -146,7 +146,7 @@
         <script>
             function copyToClipboard() {
                 navigator.clipboard.writeText(window.location.href);
-                alert("Tautan artikel berhasil disalin, Boss!");
+                alert("Tautan artikel berhasil disalin!");
             }
         </script>
 
