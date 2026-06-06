@@ -27,6 +27,14 @@ Route::get('/buat-jembatan', function () {
     return 'Jembatan gambar berhasil dibuat!';
 });
 
+// =========================================================
+// Rute Rahasia Pembersih Cache
+// =========================================================
+Route::get('/bersih-cache', function () {
+    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+    return 'Cache server berhasil dibersihkan total!';
+});
+
 Route::post('articles/{article}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/dashboard', function () {

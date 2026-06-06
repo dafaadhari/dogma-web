@@ -1,5 +1,10 @@
 <?php
 
+$_SERVER['HTTP_HOST'] = 'dogma.gt.tc';
+$_SERVER['SERVER_NAME'] = 'dogma.gt.tc';
+$_SERVER['HTTPS'] = 'on';
+// -------------------------------------
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
