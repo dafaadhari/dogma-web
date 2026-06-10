@@ -34,8 +34,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
-    				<img src="{{ asset('logo-dogma.png') }}" alt="Logo DOGMA" style="height: 60px; width: auto;">
-				</div>
+                    <img src="{{ asset('logo-dogma.png') }}" alt="Logo DOGMA" style="height: 60px; width: auto;">
+                </div>
                 
                 <nav class="hidden md:flex space-x-8">
                     <a href="#beranda" class="text-gray-600 hover:text-black font-semibold transition">Beranda</a>
@@ -167,13 +167,11 @@
 
     <section id="berita" class="pt-20 pb-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header Section Berita (Meniru gaya Diskusi Mendatang) -->
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-black">Sorotan Redaksi</h2>
                 <p class="mt-4 text-gray-500">Laporan, opini, dan tajuk rencana terbaru dari DOGMA.</p>
             </div>
             
-            <!-- Grid Berita -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @forelse($articles as $article)
                     <article class="bg-white border border-gray-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300">
@@ -192,21 +190,17 @@
                             </div>
                         </div>
                         
-                        <!-- Info Konten -->
                         <div class="p-6 flex flex-col flex-grow">
-                            <!-- Meta Penulis & Tanggal (Meniru label biru/abu di diskusi) -->
                             <div class="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-3">
                                 {{ $article->user->name ?? 'Redaksi' }} &bull; {{ $article->created_at->format('d M Y') }}
                             </div>
                             
-                            <!-- Judul Berita -->
                             <h3 class="text-xl font-bold text-black leading-snug mb-4">
                                 <a href="{{ route('news.detail', $article->slug) }}" class="hover:text-blue-600 transition-colors">
                                     {{ $article->title }}
                                 </a>
                             </h3>
                             
-                            <!-- Garis Pemisah Tipis & Tombol Baca -->
                             <div class="mt-auto pt-4 border-t border-gray-100">
                                 <a href="{{ route('news.detail', $article->slug) }}" class="inline-flex items-center text-xs font-bold text-black hover:text-blue-600 uppercase tracking-wider gap-1">
                                     Baca Artikel 
@@ -223,9 +217,13 @@
                     </div>
                 @endforelse
             </div>
-            <div class="mt-12">
-            {{ $articles->links() }}
-        </div>
+            
+            <div class="mt-16 flex justify-center items-center">
+                <a href="{{ route('news.index') }}" class="px-8 py-3 bg-black text-white font-bold uppercase tracking-widest text-sm shadow-lg hover:bg-gray-800 transition duration-300 w-full sm:w-auto text-center">
+                    Artikel Terkait &rarr;
+                </a>
+            </div>
+
         </div>
     </section>
 

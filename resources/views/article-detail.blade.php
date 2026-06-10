@@ -76,7 +76,8 @@
     <header class="border-b border-gray-200 py-4 sticky top-0 bg-white/90 backdrop-blur-sm z-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 flex justify-between items-center">
             <a href="{{ url('/') }}" class="font-black text-xl tracking-widest text-black hover:text-gray-600 transition">DOGMA</a>
-            <a href="{{ url('/#berita') }}" class="text-xs font-bold text-gray-500 uppercase tracking-widest hover:text-black transition">
+            
+            <a href="{{ url()->previous() !== url()->current() ? url()->previous() : route('news.index') }}" class="text-xs font-bold text-gray-500 uppercase tracking-widest hover:text-black transition">
                 &larr; Kembali
             </a>
         </div>
