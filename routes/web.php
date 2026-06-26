@@ -9,7 +9,8 @@ use App\Http\Controllers\AdminArticleController;
 use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
-    $topics = Topic::orderBy('discussion_date', 'desc')->get();
+    // Hanya tampilkan 3 diskusi terbaru, sisanya disembunyikan
+    $topics = Topic::orderBy('discussion_date', 'desc')->take(3)->get();
     
     // UBAH: Dibatasi menjadi 3 artikel saja per halaman
     $articles = Article::where('status', 'published')->latest()->paginate(3);
