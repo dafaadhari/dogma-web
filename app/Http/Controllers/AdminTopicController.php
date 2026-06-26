@@ -37,6 +37,7 @@ class AdminTopicController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required',
             'date' => 'required|date',
+            'location' => 'nullable|string|max:255',
         ]);
         $status = ($request->date < date('Y-m-d')) ? 'completed' : 'upcoming';
 
@@ -45,6 +46,7 @@ class AdminTopicController extends Controller
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'discussion_date' => $request->date,
+            'location' => $request->location,
             'status' => $status,
         ]);
         return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi baru berhasil ditambahkan!');
@@ -76,6 +78,7 @@ class AdminTopicController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required',
             'date' => 'required|date',
+            'location' => 'nullable|string|max:255',
         ]);
 
         $status = ($request->date < date('Y-m-d')) ? 'completed' : 'upcoming';
@@ -86,6 +89,7 @@ class AdminTopicController extends Controller
             'slug' => Str::slug($request->title),
             'description' => $request->description,
             'discussion_date' => $request->date,
+            'location' => $request->location,
             'status' => $status,
         ]);
         return redirect()->route('topics.index')->with('success', 'Jadwal Diskusi berhasil diperbarui!');

@@ -24,6 +24,11 @@
                             <input type="datetime-local" name="date" id="date" value="{{ \Carbon\Carbon::parse($topic->discussion_date)->format('Y-m-d\TH:i') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
 
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="location">Lokasi</label>
+                            <input type="text" name="location" id="location" value="{{ old('location', $topic->location) }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Contoh: Aula Desa Cimarga / Online via Zoom">
+                        </div>
+
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Deskripsi Lengkap</label>
                             <textarea name="description" id="description" rows="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>{{ $topic->description }}</textarea>

@@ -39,7 +39,7 @@
                                         {{ $article->title }}
                                     </td>
                                     <td class="p-4 text-gray-600">
-                                        {{ $article->user->name ?? 'Anonim' }}
+                                        {{ $article->display_author }}
                                     </td>
                                     <td class="p-4">
                                         @if($article->status == 'published')

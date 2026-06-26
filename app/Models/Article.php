@@ -12,6 +12,7 @@ class Article extends Model
 
     protected $fillable = [
         'user_id',
+        'author_name',
         'title',
         'slug',
         'cover_image',
@@ -23,6 +24,15 @@ class Article extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Nama penulis yang ditampilkan ke publik.
+     * Pakai author_name jika diisi, jika tidak fallback ke nama akun pembuat.
+     */
+    public function getDisplayAuthorAttribute()
+    {
+        return $this->author_name ?: ($this->user->name ?? 'Redaksi DOGMA');
     }
 
     public function comments()

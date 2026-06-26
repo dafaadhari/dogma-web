@@ -31,7 +31,8 @@ class AdminArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048', 
+            'author_name' => 'nullable|string|max:255',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'content' => 'required',
         ]);
 
@@ -48,6 +49,7 @@ class AdminArticleController extends Controller
 
         Article::create([
             'user_id' => $user->id,
+            'author_name' => $request->author_name,
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . Str::random(6),
             'cover_image' => $imagePath,
@@ -76,6 +78,7 @@ class AdminArticleController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
+            'author_name' => 'nullable|string|max:255',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             'content' => 'required',
         ]);
@@ -89,6 +92,7 @@ class AdminArticleController extends Controller
         }
 
         $article->update([
+            'author_name' => $request->author_name,
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . Str::random(6),
             'cover_image' => $imagePath,

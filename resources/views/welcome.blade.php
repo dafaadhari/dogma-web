@@ -158,6 +158,9 @@
                     <p class="text-gray-600 mb-8 flex-grow">{{ $topic->description }}</p>
                     <div class="pt-6 border-t border-gray-100">
                         <p class="text-sm font-semibold text-black">{{ \Carbon\Carbon::parse($topic->discussion_date)->format('d M Y, H:i') }} WIB</p>
+                        @if($topic->location)
+                            <p class="text-sm text-gray-500 mt-1">📍 {{ $topic->location }}</p>
+                        @endif
                     </div>
                 </div>
                 @endforeach
@@ -192,7 +195,7 @@
                         
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-3">
-                                {{ $article->user->name ?? 'Redaksi' }} &bull; {{ $article->created_at->format('d M Y') }}
+                                {{ $article->display_author }} &bull; {{ $article->created_at->format('d M Y') }}
                             </div>
                             
                             <h3 class="text-xl font-bold text-black leading-snug mb-4">

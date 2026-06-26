@@ -25,6 +25,12 @@
                             <input type="datetime-local" name="date" id="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
 
+                        <!-- Input Lokasi -->
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="location">Lokasi</label>
+                            <input type="text" name="location" id="location" value="{{ old('location') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Contoh: Aula Desa Cimarga / Online via Zoom">
+                        </div>
+
                         <!-- Input Deskripsi -->
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Deskripsi Lengkap</label>

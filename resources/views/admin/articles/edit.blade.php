@@ -44,6 +44,15 @@
                     </div>
 
                     <div class="mb-6">
+                        <label for="author_name" class="block text-sm font-medium text-gray-700">Nama Penulis (Opsional)</label>
+                        <input type="text" name="author_name" id="author_name" value="{{ old('author_name', $article->author_name) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Contoh: Budi Santoso">
+                        <p class="text-xs text-gray-500 mt-1">Nama ini akan tampil sebagai penulis artikel. Kosongkan untuk memakai nama akun Anda.</p>
+                        @error('author_name')
+                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="mb-6">
                         <label for="cover_image" class="block text-sm font-medium text-gray-700 mb-2">Gambar Sampul (Thumbnail)</label>
                         
                         <img id="image-preview" src="{{ $article->cover_image ? asset($article->cover_image) : '#' }}" alt="Preview Gambar" class="{{ $article->cover_image ? 'block' : 'hidden' }} mb-3 max-w-sm rounded-lg shadow-sm border border-gray-200 object-cover">

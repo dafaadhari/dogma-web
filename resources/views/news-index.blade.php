@@ -53,7 +53,7 @@
                         
                         <div class="p-6 flex flex-col flex-grow">
                             <div class="text-[11px] font-bold text-blue-600 uppercase tracking-widest mb-3">
-                                {{ $article->user->name ?? 'Redaksi' }} &bull; {{ $article->created_at->format('d M Y') }}
+                                {{ $article->display_author }} &bull; {{ $article->created_at->format('d M Y') }}
                             </div>
                             
                             <h3 class="text-xl font-bold text-black leading-snug mb-4">

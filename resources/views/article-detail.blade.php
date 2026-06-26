@@ -93,7 +93,7 @@
                 {{ $article->title }}
             </h1>
             <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">
-                Oleh: <span class="text-black">{{ $article->user->name ?? 'Redaksi DOGMA' }}</span>
+                Oleh: <span class="text-black">{{ $article->display_author }}</span>
             </p>
         </div>
 
